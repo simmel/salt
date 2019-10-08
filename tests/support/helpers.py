@@ -35,6 +35,7 @@ import tornado.web
 import types
 
 # Import 3rd-party libs
+import pytest
 from salt.ext import six
 from salt.ext.six.moves import range, builtins  # pylint: disable=import-error,redefined-builtin
 from pytestsalt.utils import get_unused_localhost_port
