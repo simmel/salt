@@ -12,8 +12,7 @@ from tests.support.helpers import (
     destructiveTest,
     requires_network,
     requires_salt_modules,
-    requires_system_grains,
-    skip_if_not_root)
+    requires_system_grains)
 from tests.support.unit import skipIf
 
 # Import Salt libs
@@ -38,7 +37,7 @@ class PkgModuleTest(ModuleCase, SaltReturnAssertsMixin):
         elif grains['os_family'] == 'RedHat':
             cls.pkg = 'units'
 
-    @skip_if_not_root
+    @pytest.mark.skip_if_not_root
     @requires_salt_modules('pkg.refresh_db')
     def setUp(self):
         if 'refresh' not in self.ctx:
