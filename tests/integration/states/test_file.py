@@ -132,6 +132,7 @@ def _test_managed_file_mode_keep_helper(testcase, local=False):
         os.chmod(grail_fs_path, grail_fs_mode)
 
 
+@pytest.mark.windows_whitelisted
 class FileTest(ModuleCase, SaltReturnAssertsMixin):
     '''
     Validate the file state
@@ -2811,6 +2812,7 @@ class FileTest(ModuleCase, SaltReturnAssertsMixin):
         self.assertSaltTrueReturn(ret)
 
 
+@pytest.mark.windows_whitelisted
 class BlockreplaceTest(ModuleCase, SaltReturnAssertsMixin):
     marker_start = '# start'
     marker_end = '# end'
@@ -4033,6 +4035,7 @@ class BlockreplaceTest(ModuleCase, SaltReturnAssertsMixin):
             diff)
 
 
+@pytest.mark.windows_whitelisted
 class RemoteFileTest(ModuleCase, SaltReturnAssertsMixin):
     '''
     Uses a local tornado webserver to test http(s) file.managed states with and
@@ -4121,6 +4124,7 @@ class RemoteFileTest(ModuleCase, SaltReturnAssertsMixin):
 
 
 @skipIf(not salt.utils.path.which('patch'), 'patch is not installed')
+@pytest.mark.windows_whitelisted
 class PatchTest(ModuleCase, SaltReturnAssertsMixin):
     def _check_patch_version(self, min_version):
         '''
@@ -4727,6 +4731,7 @@ WIN_TEST_FILE = 'c:/testfile'
 
 @pytest.mark.destructive_test
 @skipIf(not IS_WINDOWS, 'windows test only')
+@pytest.mark.windows_whitelisted
 class WinFileTest(ModuleCase):
     '''
     Test for the file state on Windows

@@ -20,6 +20,7 @@ import salt.utils.pkg
 import salt.utils.platform
 
 
+@pytest.mark.windows_whitelisted
 class PkgModuleTest(ModuleCase, SaltReturnAssertsMixin):
     '''
     Validate the pkg module
